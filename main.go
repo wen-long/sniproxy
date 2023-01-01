@@ -162,7 +162,8 @@ func serve(ctx context.Context, c net.Conn) {
 	// sni is ip address, ignore it, prevent dead loop
 	ip := net.ParseIP(servername)
 	if ip != nil {
-		glog.Debugf("sni %s, send to default", ip.String())
+		glog.Debugf("from %s, sni %s, forward to %s", c.RemoteAddr(), servername, ip.String())
+
 		forward(ctx, c, buf[:n], getDefaultDST())
 		return
 	}
