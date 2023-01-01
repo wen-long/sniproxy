@@ -1,4 +1,4 @@
-module github.com/fangdingjun/sniproxy
+module github.com/wen-long/sniproxy
 
 go 1.17
 
